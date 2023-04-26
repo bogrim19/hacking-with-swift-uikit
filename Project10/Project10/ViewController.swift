@@ -69,6 +69,28 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         let person = people[indexPath.item]
         
+        // MARK: Rename or delete prompt
+        let choiceAlertController = UIAlertController(title: "", message: "Choose an action", preferredStyle: .alert)
+        choiceAlertController.addAction(UIAlertAction(title: "Rename", style: .default) { [weak self] _ in
+            // MARK: Rename cell
+            if let self = self {
+                self.renamePerson(indexPath: indexPath)
+            }
+        })
+        
+        choiceAlertController.addAction(UIAlertAction(title: "Delete", style: .destructive){ [weak self] _ in
+            guard let self = self else { return }
+            people.remove(at: indexPath.item)
+            self.collectionView.deleteItems(at: [indexPath])
+            self.collectionView.reloadData()
+        })
+        
+        present(choiceAlertController, animated: true)
+    }
+    
+    func renamePerson(indexPath: IndexPath) {
+        let person = people[indexPath.item]
+
         let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
@@ -79,7 +101,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         )
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        present(ac, animated: true)
+        self.present(ac, animated: true)
     }
 }
-
