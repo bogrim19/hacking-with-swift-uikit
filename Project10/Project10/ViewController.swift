@@ -6,6 +6,9 @@
 //
 // using CoreData tutorial from
 // https://johncodeos.com/how-to-use-core-data-in-ios-using-swift/
+//
+// using Context Menu tutorial from
+// https://medium.com/doyeona/context-menus-in-ios13-collectionview-1d292d4fe8e0
 
 import UIKit
 import CoreData
@@ -122,18 +125,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     func getPeople() {
-        /*
-         let noteFetch: NSFetchRequest<Note> = Note.fetchRequest()
-             let sortByDate = NSSortDescriptor(key: #keyPath(Note.dateAdded), ascending: false)
-             noteFetch.sortDescriptors = [sortByDate]
-             do {
-                 let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-                 let results = try managedContext.fetch(noteFetch)
-                 notes = results
-             } catch let error as NSError {
-                 print("Fetch error: \(error) description: \(error.userInfo)")
-             }
-         */
         let peopleFetch: NSFetchRequest<PeopleData> = PeopleData.fetchRequest()
         do {
             let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
@@ -143,5 +134,40 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             print("Fetch error: \(error) description: \(error.userInfo)")
         }
     }
+    
+    // MARK: Long press
+    @IBAction func longPressHandler(_ gestureReconizer: UILongPressGestureRecognizer) {
+        guard gestureReconizer.state != .began else { return }
+       print("long pressed!")
+        let point = gestureReconizer.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        if let index = indexPath{
+              print(index.row)
+        }
+        else{
+              print("Could not find index path")
+        }
+    }
+    
+    // MARK: Context menu
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        configureContextMenu(index: indexPaths[0].item)
+    }
+    
+    func configureContextMenu(index: Int) -> UIContextMenuConfiguration{
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+                
+                let edit = UIAction(title: "Edit", image: UIImage(systemName: "square.and.pencil"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                                print("edit button clicked")
+                            }
+                let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
+                    print("delete button clicked")
+                }
+                
+                return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [edit,delete])
+                
+            }
+            return context
+        }
 }
 

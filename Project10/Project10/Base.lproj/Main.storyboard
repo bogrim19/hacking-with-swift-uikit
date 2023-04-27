@@ -16,6 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LkP-bB-Qqx">
                             <size key="itemSize" width="130" height="180"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -44,8 +45,10 @@
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <size key="customSize" width="130" height="180"/>
                                 <connections>
                                     <outlet property="PersonImage" destination="ZtH-6Y-WfY" id="lY5-v1-9Hq"/>
@@ -56,11 +59,17 @@
                         <connections>
                             <outlet property="dataSource" destination="eOF-vc-S9L" id="Pgb-TU-bOg"/>
                             <outlet property="delegate" destination="eOF-vc-S9L" id="q90-sY-3Pr"/>
+                            <outletCollection property="gestureRecognizers" destination="bi9-db-SvJ" appends="YES" id="uvD-Ln-4i0"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="i7W-E2-9Vn"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJw-mi-CJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bi9-db-SvJ">
+                    <connections>
+                        <action selector="longPressHandler:" destination="eOF-vc-S9L" id="8Bq-kS-mvb"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="683.20610687022895" y="-29.577464788732396"/>
         </scene>
