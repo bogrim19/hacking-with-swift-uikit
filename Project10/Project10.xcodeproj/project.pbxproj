@@ -14,6 +14,10 @@
 		6B1EA00B29D7063A00B715E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B1EA00A29D7063A00B715E3 /* Assets.xcassets */; };
 		6B1EA00E29D7063A00B715E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1EA00C29D7063A00B715E3 /* LaunchScreen.storyboard */; };
 		6B1EA01629D7089D00B715E3 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1EA01529D7089D00B715E3 /* PersonCell.swift */; };
+		6B768E0E29F9D0EE00002B99 /* PersonData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B768E0C29F9D0EE00002B99 /* PersonData.xcdatamodeld */; };
+		6B768E1129F9D13D00002B99 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B768E1029F9D13D00002B99 /* CoreDataStack.swift */; };
+		6B768E1829F9D36900002B99 /* PersonData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B768E1629F9D36900002B99 /* PersonData+CoreDataClass.swift */; };
+		6B768E1929F9D36900002B99 /* PersonData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B768E1729F9D36900002B99 /* PersonData+CoreDataProperties.swift */; };
 		6BB2A03629F2F05100F9DCE1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2A03529F2F05100F9DCE1 /* Person.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		6B1EA00D29D7063A00B715E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B1EA00F29D7063A00B715E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B1EA01529D7089D00B715E3 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		6B768E0D29F9D0EE00002B99 /* PeopleData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PeopleData.xcdatamodel; sourceTree = "<group>"; };
+		6B768E1029F9D13D00002B99 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		6B768E1629F9D36900002B99 /* PersonData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6B768E1729F9D36900002B99 /* PersonData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6BB2A03529F2F05100F9DCE1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +68,7 @@
 		6B1EA00029D7063A00B715E3 /* Project10 */ = {
 			isa = PBXGroup;
 			children = (
+				6B768E0F29F9D11C00002B99 /* Core Data */,
 				6B1EA00129D7063A00B715E3 /* AppDelegate.swift */,
 				6B1EA00329D7063A00B715E3 /* SceneDelegate.swift */,
 				6B1EA00529D7063A00B715E3 /* ViewController.swift */,
@@ -71,6 +80,17 @@
 				6B1EA00F29D7063A00B715E3 /* Info.plist */,
 			);
 			path = Project10;
+			sourceTree = "<group>";
+		};
+		6B768E0F29F9D11C00002B99 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				6B768E1629F9D36900002B99 /* PersonData+CoreDataClass.swift */,
+				6B768E1729F9D36900002B99 /* PersonData+CoreDataProperties.swift */,
+				6B768E0C29F9D0EE00002B99 /* PersonData.xcdatamodeld */,
+				6B768E1029F9D13D00002B99 /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B768E1829F9D36900002B99 /* PersonData+CoreDataClass.swift in Sources */,
+				6B768E1129F9D13D00002B99 /* CoreDataStack.swift in Sources */,
+				6B768E1929F9D36900002B99 /* PersonData+CoreDataProperties.swift in Sources */,
 				6BB2A03629F2F05100F9DCE1 /* Person.swift in Sources */,
 				6B1EA00629D7063A00B715E3 /* ViewController.swift in Sources */,
+				6B768E0E29F9D0EE00002B99 /* PersonData.xcdatamodeld in Sources */,
 				6B1EA00229D7063A00B715E3 /* AppDelegate.swift in Sources */,
 				6B1EA01629D7089D00B715E3 /* PersonCell.swift in Sources */,
 				6B1EA00429D7063A00B715E3 /* SceneDelegate.swift in Sources */,
@@ -370,6 +394,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6B768E0C29F9D0EE00002B99 /* PersonData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6B768E0D29F9D0EE00002B99 /* PeopleData.xcdatamodel */,
+			);
+			currentVersion = 6B768E0D29F9D0EE00002B99 /* PeopleData.xcdatamodel */;
+			path = PersonData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6B1E9FF629D7063900B715E3 /* Project object */;
 }
